@@ -1,9 +1,4 @@
 
-
-> Network traffic capture and analysis CLI with protocol distribution, top talkers, and bandwidth visualization.
-
-*This is a quick overview — security theory, architecture, and full walkthroughs are in the [learn modules](#learn).*
-
 ## What It Does
 
 - Capture live network traffic on any interface with configurable packet counts
