@@ -1,8 +1,4 @@
 
-[![Cybersecurity Projects](https://img.shields.io/badge/Cybersecurity--Projects-Project%20%2312-red?style=flat&logo=github)](https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/beginner/network-traffic-analyzer)
-[![Python](https://img.shields.io/badge/Python-3.14+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
-[![License: AGPLv3](https://img.shields.io/badge/License-AGPL_v3-purple.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![PyPI](https://img.shields.io/pypi/v/netanal?color=3775A9&logo=pypi&logoColor=white)](https://pypi.org/project/netanal/)
 
 > Network traffic capture and analysis CLI with protocol distribution, top talkers, and bandwidth visualization.
 
