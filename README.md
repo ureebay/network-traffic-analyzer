@@ -1,11 +1,3 @@
-```ruby
-███╗   ██╗███████╗████████╗ █████╗ ███╗   ██╗ █████╗ ██╗
-████╗  ██║██╔════╝╚══██╔══╝██╔══██╗████╗  ██║██╔══██╗██║
-██╔██╗ ██║█████╗     ██║   ███████║██╔██╗ ██║███████║██║
-██║╚██╗██║██╔══╝     ██║   ██╔══██║██║╚██╗██║██╔══██║██║
-██║ ╚████║███████╗   ██║   ██║  ██║██║ ╚████║██║  ██║███████╗
-╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝
-```
 
 [![Cybersecurity Projects](https://img.shields.io/badge/Cybersecurity--Projects-Project%20%2312-red?style=flat&logo=github)](https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/beginner/network-traffic-analyzer)
 [![Python](https://img.shields.io/badge/Python-3.14+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org)
