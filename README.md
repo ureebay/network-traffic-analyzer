@@ -1,46 +1,59 @@
+# Network Traffic Analyzer
 
-## What It Does
+Python-based packet capture tool that monitors live network traffic in real time, identifies protocols, tracks bandwidth, and displays statistics. Deployed and run on Windows using Scapy, Rich, and Matplotlib.
 
-- Capture live network traffic on any interface with configurable packet counts
-- Real-time protocol distribution analysis with percentage breakdowns
-- Top talkers identification showing most active IP addresses by traffic volume
-- Bandwidth calculation with bytes sent/received per endpoint
-- Verbose mode displays individual packet flow with source/destination details
-- Built on Scapy for deep packet inspection and protocol parsing
+## Environment
+- Windows 11, Python 3.14.5
+- Npcap driver for Windows packet capture
+- Administrator privileges required for raw socket access
 
-## Quick Start
+## My Findings
 
-```bash
-uv tool install netanal
-sudo netanal capture -i eth0 -c 100
-```
+### Session 1: Multi-Protocol Capture (466 packets, 4.9 seconds)
+![Capture Summary](screenshots/capture-summary.webp)
 
-> [!TIP]
-> This project uses [`just`](https://github.com/casey/just) as a command runner. Type `just` to see all available commands.
->
-> Install: `curl -sSf https://just.systems/install.sh | bash -s -- --to ~/.local/bin`
+- Captured 5 protocols: UDP, TCP, DNS, HTTPS, ARP across 12 unique endpoints
+- UDP accounted for 91.4% of traffic, consistent with real time streaming behavior
+- HTTPS confirmed active encrypted web sessions
+- DNS revealed constant background domain resolution activity
+- Identified Cloudflare CDN servers as top external endpoints
+- Results exported to JSON for offline analysis
 
-## Commands
+### Session 2: Verbose Packet Flow (50 packets)
+![Packet Flow](screenshots/packet-flow.webp)
 
-| Command | Description |
-|---------|-------------|
-| `netanal capture` | Live packet capture with protocol analysis, top talkers, and bandwidth stats |
+- Captured individual packet level data showing bidirectional UDP traffic
+- Source: 192.168.1.158 (local machine), Destination: Cloudflare servers
+- Packet sizes ranged from 89 to 283 bytes
 
-## Learn
+### Session 3: First Successful Capture (100 packets)
+![First Capture](screenshots/first-capture.webp)
 
-This project includes step-by-step learning materials covering security theory, architecture, and implementation.
+- Initial capture confirming tool worked on Windows with Npcap
+- 3 unique endpoints, 21.8 KB captured in 0.8 seconds
+- Established baseline for subsequent sessions
 
-| Module | Topic |
-|--------|-------|
-| [00 - Overview](learn/00-OVERVIEW.md) | Prerequisites and quick start |
-| [01 - Concepts](learn/01-CONCEPTS.md) | Security theory and real-world breaches |
-| [02 - Architecture](learn/02-ARCHITECTURE.md) | System design and data flow |
-| [03 - Implementation](learn/03-IMPLEMENTATION.md) | Code walkthrough |
-| [04 - Challenges](learn/04-CHALLENGES.md) | Extension ideas and exercises |
+## What I Learned
+- Packet capture requires Administrator privileges on Windows because it accesses raw sockets at the kernel level
+- UDP dominates real time traffic because it sends without waiting for confirmation, making it faster than TCP
+- DNS queries happen constantly in the background even when no browser is open
+- ARP packets operate at Layer 2 and map IP addresses to MAC addresses on the local network
+- BPF filters run inside the kernel and drop irrelevant packets before they reach the application
+- Producer-consumer threading keeps capture running at wire speed by separating packet ingestion from processing into two threads connected by a bounded queue
 
-![Capture Summary](screenshots/capture-summary.png)
-![Packet Flow](screenshots/packet-flow.png)
-![First Capture](screenshots/first-capture.png)
-## License
+## How to Run
+Requires Windows with Npcap installed. Must run as Administrator.
 
-AGPL 3.0
+git clone https://github.com/ureebay/network-traffic-analyzer
+cd network-traffic-analyzer/python
+pip install -e .
+python -m netanal capture -i "YOUR_INTERFACE" --count 500 -o results.json
+
+To find your interface:
+python -c "from scapy.all import conf; print(conf.iface)"
+
+## Next Extensions
+- Bandwidth spike alerting
+- TCP handshake tracking to detect incomplete connections
+- Packet size distribution histogram
+- DNS query correlation
