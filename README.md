@@ -10,7 +10,7 @@ Python-based packet capture tool that monitors live network traffic in real time
 ## My Findings
 
 ### Session 1: Multi-Protocol Capture (466 packets, 4.9 seconds)
-![Capture Summary](screenshots/capture-summary.webp)
+![Capture Summary](screenshots/Capture-Summary.webp)
 
 - Captured 5 protocols: UDP, TCP, DNS, HTTPS, ARP across 12 unique endpoints
 - UDP accounted for 91.4% of traffic, consistent with real time streaming behavior
@@ -21,6 +21,7 @@ Python-based packet capture tool that monitors live network traffic in real time
 
 ### Session 2: Verbose Packet Flow (50 packets)
 ![Packet Flow](screenshots/packet-flow.webp)
+
 
 - Captured individual packet level data showing bidirectional UDP traffic
 - Source: 192.168.1.158 (local machine), Destination: Cloudflare servers
