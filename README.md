@@ -55,7 +55,9 @@ This project includes step-by-step learning materials covering security theory, 
 | [03 - Implementation](learn/03-IMPLEMENTATION.md) | Code walkthrough |
 | [04 - Challenges](learn/04-CHALLENGES.md) | Extension ideas and exercises |
 
-
+![Capture Summary](screenshots/capture-summary.png)
+![Packet Flow](screenshots/packet-flow.png)
+![First Capture](screenshots/first-capture.png)
 ## License
 
 AGPL 3.0
