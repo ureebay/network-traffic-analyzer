@@ -44,7 +44,7 @@ Python-based packet capture tool that monitors live network traffic in real time
 - Producer-consumer threading keeps capture running at wire speed by separating packet ingestion from processing into two threads connected by a bounded queue
 
 ## How to Run
-Requires Windows with Npcap installed. Must run as Administrator.
+Requires Windows with Npcap installed, run as administrator.
 
 git clone https://github.com/ureebay/network-traffic-analyzer
 cd network-traffic-analyzer/python
